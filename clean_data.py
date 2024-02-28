@@ -30,16 +30,16 @@ def create_key(df, n):
     # Esta es la parte especifica del algoritmo de n-gram:
     #
     # - Una el texto sin espacios en blanco
-
+    df["key"] = df["key"].str.join("")
     #
     # - Convierta el texto a una lista de n-gramas
-
+    df["key"] = df["key"].map(lambda x: [x[t : t + n - 1] for t in range(len(x))])
     #
     # - Ordene la lista de n-gramas y remueve duplicados
-
+    df["key"] = df["key"].apply(lambda x: sorted(set(x)))
     #
     # - Convierta la lista de ngramas a una cadena
-
+    df["key"] = df["key"].str.join("")
     ## ------------------------------------------------------
 
     return df
