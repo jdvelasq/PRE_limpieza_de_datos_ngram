@@ -5,7 +5,7 @@ import os
 import clean_data
 import pandas as pd
 
-clean_data.main("input.txt", "output.txt")
+clean_data.main("input.txt","output.txt")
 
 if not os.path.exists("test.csv"):
     raise FileNotFoundError("File 'test.csv' not found")
